@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Chat Online</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase JS Client CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Auth Container (Shown when logged out) -->
+    <div id="auth-container" class="auth-card">
+        <h1>Class Chat Online</h1>
+        <form id="auth-form">
+            <div id="display-name-group">
+                <label for="display-name">Display Name</label>
+                <input type="text" id="display-name" maxlength="24" placeholder="Your name (e.g. Ana)">
+            </div>
+            <label for="email">Email</label>
+            <input type="email" id="email" required placeholder="student@example.com">
+            
+            <label for="password">Password (min 8 chars)</label>
+            <input type="password" id="password" required minlength="8" placeholder="••••••••">
+            
+            <button type="submit" id="auth-submit-btn">Sign Up</button>
+            <p id="auth-toggle-text">
+                Already have an account? <a href="#" id="toggle-mode">Log in</a>
+            </p>
+        </form>
+        <p id="auth-error" class="error-text"></p>
+    </div>
+
+    <!-- Chat Container (Shown when logged in) -->
+    <main id="chat-container" class="chat-card hidden">
+        <header class="chat-header">
+            <div class="header-top">
+                <h1>Class Chat Online</h1>
+                <button id="logout-btn" type="button">Log Out</button>
+            </div>
+            <div class="user-info">
+                Logged in as: <span id="current-user-name"></span>
+            </div>
+        </header>
+
+        <section id="message-list" class="message-list">
+            <!-- Messages will be dynamically inserted here -->
+        </section>
+
+        <!-- Composer: text box + send button -->
+        <form id="message-form" class="composer" autocomplete="off">
+            <label for="message-input" class="visually-hidden">Message</label>
+            <input id="message-input" type="text" maxlength="500" required
+            placeholder="Type a message or /weather Manila">
+            <button type="submit">Send</button>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
